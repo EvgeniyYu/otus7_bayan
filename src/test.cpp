@@ -1,5 +1,15 @@
 #define BOOST_TEST_MODULE test_bayan
+#include <boost/test/unit_test.hpp>	
 
+BOOST_AUTO_TEST_SUITE(test_bayan)
+BOOST_AUTO_TEST_CASE(test_result_level_0_hash_crc32)
+{
+	BOOST_CHECK(result == true);			
+}
+BOOST_AUTO_TEST_SUITE_END()
+
+/*
+#define BOOST_TEST_MODULE test_bayan
 
 #include <boost/test/unit_test.hpp>	
 #include "../include/def.h"
@@ -85,11 +95,8 @@ BOOST_AUTO_TEST_CASE(test_result_level_1_hash_md5)
     			};
     bool result = compare_vectors(vec_calc, vec_true);
     BOOST_CHECK(result == true);
-
-
 }
 
-
 BOOST_AUTO_TEST_SUITE_END()
-
+*/
 
