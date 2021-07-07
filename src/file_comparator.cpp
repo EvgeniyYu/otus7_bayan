@@ -126,8 +126,8 @@ void FileComparator::compare()
 			continue;
 		}
 
-        std::vector<std::string> v_res;
-        v_res.push_back(v_filedata[curr_file_index].file.name);
+        std::set<std::string> v_res;
+        v_res.insert(v_filedata[curr_file_index].file.name);
 		for (size_t i = 0; i < v_filedata.size(); i++)
 		{
 			if (i == curr_file_index) continue;
@@ -136,7 +136,7 @@ void FileComparator::compare()
 			{
 				v_filedata[i].file.is_comparing = false;
 
-                v_res.push_back(v_filedata[i].file.name);
+                v_res.insert(v_filedata[i].file.name);
 
 			}
 			v_filedata[curr_file_index].file.is_comparing = false;

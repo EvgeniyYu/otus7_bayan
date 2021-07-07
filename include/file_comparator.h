@@ -6,8 +6,9 @@
 #include <iostream>
 #include <memory>
 #include <vector>
+#include <set>
 
-using vv = std::vector<std::vector<std::string>>;
+using vv = std::vector<std::set<std::string>>;
 
 class IFileComparator
 {

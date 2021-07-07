@@ -1,8 +1,7 @@
 #define BOOST_TEST_MODULE test_bayan
-#include <boost/test/unit_test.hpp>	
-#include <iostream>
-#include <filesystem>
 
+/*
+#include <boost/test/unit_test.hpp>	
 #include "../include/def.h"
 #include "../include/file_scanner.h"
 #include "../include/file_comparator.h"
@@ -11,8 +10,6 @@
 #include <memory>
 #include <vector>
 
-
-namespace fs = std::filesystem;	
 using vv = std::vector<std::vector<std::string>>;
 
 BOOST_AUTO_TEST_SUITE(test_bayan)
@@ -74,8 +71,10 @@ BOOST_AUTO_TEST_CASE(test_result_level_0_hash_crc32)
 }
 
 BOOST_AUTO_TEST_SUITE_END()
+*/
 
-/*
+
+
 #define BOOST_TEST_MODULE test_bayan
 
 #include <boost/test/unit_test.hpp>	
@@ -86,23 +85,12 @@ BOOST_AUTO_TEST_SUITE_END()
 #include "../include/hash_algorithm.h"
 #include <memory>
 #include <vector>
+#include <set>
+#include <algorithm>
 
 BOOST_AUTO_TEST_SUITE(test_bayan)
 
-using vv = std::vector<std::vector<std::string>>;
-
-bool compare_vectors(vv& v1, vv& v2)
-{
-    int index = 0;
-    for (const auto& i: v1)
-    {        
-    	//vector must contain more than one record so we check:
-        if (i.size() <= 1) continue;
-        if (i != v2[index]) return false;
-        index++;
-    }
-    return true;
-}
+using vv = std::vector<std::set<std::string>>;
 
 
 BOOST_AUTO_TEST_CASE(test_result_level_0_hash_crc32)
@@ -119,8 +107,10 @@ BOOST_AUTO_TEST_CASE(test_result_level_0_hash_crc32)
     FileScanner scanner(options);
     bool is_scan = scanner.scan();
     BOOST_CHECK(is_scan == true);
+    std::vector<File> files = scanner.getFilesList();
+	BOOST_CHECK(files.size() == 11);
 
-    uptr_IFileComparetor fileComparator = std::make_unique<FileComparator>(options, scanner.getFilesList());    
+    uptr_IFileComparetor fileComparator = std::make_unique<FileComparator>(options, files);    
     fileComparator->compare();
     vv vec_calc = fileComparator->get_vector_result();
     
@@ -129,8 +119,9 @@ BOOST_AUTO_TEST_CASE(test_result_level_0_hash_crc32)
     			{"my_tests/next2/exe_11", "my_tests/next2/exe_1", "my_tests/next2/exe_111"},
     			{"my_tests/next2/exe_22", "my_tests/next2/exe_2"}
     			};
-    bool result = compare_vectors(vec_calc, vec_true);
-    BOOST_CHECK(result == true);
+    
+    vec_calc.erase(std::remove_if(vec_calc.begin(), vec_calc.end(), [](auto& values) {return (values.size() == 1);}), vec_calc.end());
+    BOOST_CHECK(vec_calc == vec_true);
 
 }
 
@@ -159,10 +150,9 @@ BOOST_AUTO_TEST_CASE(test_result_level_1_hash_md5)
     			{"my_tests/next2/exe_11", "my_tests/next2/exe_1", "my_tests/next2/exe_111"},
     			{"my_tests/next2/exe_22", "my_tests/next2/exe_2"}
     			};
-    bool result = compare_vectors(vec_calc, vec_true);
-    BOOST_CHECK(result == true);
+    vec_calc.erase(std::remove_if(vec_calc.begin(), vec_calc.end(), [](auto& values) {return (values.size() == 1);}), vec_calc.end());
+    BOOST_CHECK(vec_calc == vec_true);
 }
 
 BOOST_AUTO_TEST_SUITE_END()
-*/
 
