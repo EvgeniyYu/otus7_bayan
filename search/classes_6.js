@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['validatorparams_95',['ValidatorParams',['../structValidatorParams.html',1,'']]]
+  ['validatorparams_94',['ValidatorParams',['../structValidatorParams.html',1,'']]]
 ];
