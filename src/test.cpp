@@ -13,11 +13,14 @@
 
 
 namespace fs = std::filesystem;	
+#define BOOST_MESSAGE( M )                  BOOST_TEST_MESSAGE( M )
 
 BOOST_AUTO_TEST_SUITE(test_bayan)
 BOOST_AUTO_TEST_CASE(test_result_level_0_hash_crc32)
 {
-	std::cout << "Current path: " << fs::current_path() << std::endl;
+	std::string str = "Current path: ";
+	str += fs::current_path();
+	BOOST_MESSAGE(str);
 	
 	Options options;
 	options.include_dirs = "my_tests/next;my_tests/next2";
