@@ -1,10 +1,37 @@
 #define BOOST_TEST_MODULE test_bayan
 #include <boost/test/unit_test.hpp>	
+#include <iostream>
+#include <filesystem>
+
+#include "../include/def.h"
+#include "../include/file_scanner.h"
+#include "../include/file_comparator.h"
+#include "../include/file_validator.h"
+#include "../include/hash_algorithm.h"
+#include <memory>
+#include <vector>
+
+
+namespace fs = std::filesystem;	
 
 BOOST_AUTO_TEST_SUITE(test_bayan)
 BOOST_AUTO_TEST_CASE(test_result_level_0_hash_crc32)
 {
-	BOOST_CHECK(1 == 1);			
+	std::cout << "Current path: " << fs::current_path() << std::endl;
+	
+	Options options;
+	options.include_dirs = "my_tests/next;my_tests/next2";
+	options.exclude_dirs = "my_tests/next2/level_1;my_tests/next2/level_2";
+	options.level = 0;
+	options.min_file_size = 1;
+	options.mask = ".*";
+	options.block_size = 5;
+	options.hash_method = "crc32";
+	
+    FileScanner scanner(options);
+    bool is_scan = scanner.scan();
+    BOOST_CHECK(is_scan == true);
+	//BOOST_CHECK(1 == 1);			
 }
 BOOST_AUTO_TEST_SUITE_END()
 
