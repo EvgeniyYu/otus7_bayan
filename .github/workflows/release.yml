@@ -15,7 +15,7 @@ jobs:
           submodules: true
       - run: cmake .
       - run: cmake --build .
-      - run: cmake -E env CTEST_OUTPUT_ON_FAILURE=1 cmake --build . --target test
+      - run: cmake -E env CTEST_OUTPUT_ON_FAILURE=1 cmake --build . 
       - run: test --log_level=message
       - run: cmake --build . --target package
       - name: Create Release
