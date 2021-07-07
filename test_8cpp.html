@@ -74,8 +74,6 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;boost/test/unit_test.hpp&gt;</code><br />
-<code>#include &lt;iostream&gt;</code><br />
-<code>#include &lt;filesystem&gt;</code><br />
 <code>#include &quot;<a class="el" href="def_8h_source.html">../include/def.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="file__scanner_8h_source.html">../include/file_scanner.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="file__comparator_8h_source.html">../include/file_comparator.h</a>&quot;</code><br />
@@ -83,24 +81,28 @@ $(function() {
 <code>#include &quot;<a class="el" href="hash__algorithm_8h_source.html">../include/hash_algorithm.h</a>&quot;</code><br />
 <code>#include &lt;memory&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;set&gt;</code><br />
+<code>#include &lt;algorithm&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for test.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="test_8cpp__incl.png" border="0" usemap="#asrc_2test_8cpp" alt=""/></div>
 <map name="asrc_2test_8cpp" id="asrc_2test_8cpp">
-<area shape="rect" title=" " alt="" coords="455,5,546,32"/>
+<area shape="rect" title=" " alt="" coords="569,5,659,32"/>
 <area shape="rect" title=" " alt="" coords="5,80,164,107"/>
-<area shape="rect" title=" " alt="" coords="626,229,698,256"/>
-<area shape="rect" title=" " alt="" coords="239,229,319,256"/>
 <area shape="rect" href="def_8h.html" title=" " alt="" coords="496,229,601,256"/>
-<area shape="rect" title=" " alt="" coords="752,304,820,331"/>
-<area shape="rect" title=" " alt="" coords="429,304,487,331"/>
-<area shape="rect" href="file__scanner_8h.html" title=" " alt="" coords="365,80,521,107"/>
-<area shape="rect" href="file__validator_8h.html" title=" " alt="" coords="315,155,419,181"/>
-<area shape="rect" href="file__comparator_8h.html" title=" " alt="" coords="648,155,823,181"/>
-<area shape="rect" href="hash__algorithm_8h.html" title=" " alt="" coords="886,229,1006,256"/>
-<area shape="rect" title=" " alt="" coords="515,304,582,331"/>
-<area shape="rect" title=" " alt="" coords="919,304,973,331"/>
+<area shape="rect" title=" " alt="" coords="605,304,673,331"/>
+<area shape="rect" title=" " alt="" coords="274,304,333,331"/>
+<area shape="rect" href="file__scanner_8h.html" title=" " alt="" coords="395,80,551,107"/>
+<area shape="rect" href="file__validator_8h.html" title=" " alt="" coords="330,155,434,181"/>
+<area shape="rect" href="file__comparator_8h.html" title=" " alt="" coords="677,155,852,181"/>
+<area shape="rect" href="hash__algorithm_8h.html" title=" " alt="" coords="938,229,1058,256"/>
+<area shape="rect" title=" " alt="" coords="874,229,914,256"/>
+<area shape="rect" title=" " alt="" coords="978,80,1053,107"/>
+<area shape="rect" title=" " alt="" coords="514,304,581,331"/>
+<area shape="rect" title=" " alt="" coords="341,229,421,256"/>
+<area shape="rect" title=" " alt="" coords="727,229,799,256"/>
+<area shape="rect" title=" " alt="" coords="971,304,1025,331"/>
 </map>
 </div>
 </div><table class="memberdecls">
@@ -108,20 +110,38 @@ Include dependency graph for test.cpp:</div>
 Macros</h2></td></tr>
 <tr class="memitem:a6b2a3852db8bb19ab6909bac01859985"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8cpp.html#a6b2a3852db8bb19ab6909bac01859985">BOOST_TEST_MODULE</a>&#160;&#160;&#160;test_bayan</td></tr>
 <tr class="separator:a6b2a3852db8bb19ab6909bac01859985"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b2a3852db8bb19ab6909bac01859985"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8cpp.html#a6b2a3852db8bb19ab6909bac01859985">BOOST_TEST_MODULE</a>&#160;&#160;&#160;test_bayan</td></tr>
+<tr class="separator:a6b2a3852db8bb19ab6909bac01859985"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a6abc89740c138d5cd029ee343d03ce0c"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8cpp.html#a6abc89740c138d5cd029ee343d03ce0c">vv</a> = std::vector&lt; std::vector&lt; std::string &gt; &gt;</td></tr>
-<tr class="separator:a6abc89740c138d5cd029ee343d03ce0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0f05c4d2bf0ecd4e782d9573448e1db"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8cpp.html#ad0f05c4d2bf0ecd4e782d9573448e1db">vv</a> = std::vector&lt; std::set&lt; std::string &gt; &gt;</td></tr>
+<tr class="separator:ad0f05c4d2bf0ecd4e782d9573448e1db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:af7a3b68d51fcc223c86957ef02f60e17"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8cpp.html#af7a3b68d51fcc223c86957ef02f60e17">BOOST_AUTO_TEST_CASE</a> (test_result_level_0_hash_crc32)</td></tr>
 <tr class="separator:af7a3b68d51fcc223c86957ef02f60e17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4e24021ad72f1e607732e0bf749ffb0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="test_8cpp.html#ad4e24021ad72f1e607732e0bf749ffb0">BOOST_AUTO_TEST_CASE</a> (test_result_level_1_hash_md5)</td></tr>
+<tr class="separator:ad4e24021ad72f1e607732e0bf749ffb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="a6b2a3852db8bb19ab6909bac01859985"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6b2a3852db8bb19ab6909bac01859985">&#9670;&nbsp;</a></span>BOOST_TEST_MODULE</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b2a3852db8bb19ab6909bac01859985">&#9670;&nbsp;</a></span>BOOST_TEST_MODULE <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define BOOST_TEST_MODULE&#160;&#160;&#160;test_bayan</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6b2a3852db8bb19ab6909bac01859985"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b2a3852db8bb19ab6909bac01859985">&#9670;&nbsp;</a></span>BOOST_TEST_MODULE <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -135,14 +155,14 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Typedef Documentation</h2>
-<a id="a6abc89740c138d5cd029ee343d03ce0c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6abc89740c138d5cd029ee343d03ce0c">&#9670;&nbsp;</a></span>vv</h2>
+<a id="ad0f05c4d2bf0ecd4e782d9573448e1db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0f05c4d2bf0ecd4e782d9573448e1db">&#9670;&nbsp;</a></span>vv</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="file__comparator_8h.html#a6abc89740c138d5cd029ee343d03ce0c">vv</a> =  std::vector&lt;std::vector&lt;std::string&gt; &gt;</td>
+          <td class="memname">using <a class="el" href="file__comparator_8h.html#ad0f05c4d2bf0ecd4e782d9573448e1db">vv</a> =  std::vector&lt;std::set&lt;std::string&gt; &gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -151,7 +171,7 @@ Functions</h2></td></tr>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="af7a3b68d51fcc223c86957ef02f60e17"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af7a3b68d51fcc223c86957ef02f60e17">&#9670;&nbsp;</a></span>BOOST_AUTO_TEST_CASE()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#af7a3b68d51fcc223c86957ef02f60e17">&#9670;&nbsp;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -160,6 +180,24 @@ Functions</h2></td></tr>
           <td class="memname">BOOST_AUTO_TEST_CASE </td>
           <td>(</td>
           <td class="paramtype">test_result_level_0_hash_crc32&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ad4e24021ad72f1e607732e0bf749ffb0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4e24021ad72f1e607732e0bf749ffb0">&#9670;&nbsp;</a></span>BOOST_AUTO_TEST_CASE() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">BOOST_AUTO_TEST_CASE </td>
+          <td>(</td>
+          <td class="paramtype">test_result_level_1_hash_md5&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
