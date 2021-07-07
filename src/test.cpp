@@ -37,7 +37,7 @@ BOOST_AUTO_TEST_CASE(test_result_level_0_hash_crc32)
     BOOST_CHECK(is_scan == true);
     
     std::vector<File> files = scanner.getFilesList();
-	BOOST_CHECK(files.size() == 11);
+	BOOST_CHECK(files.size() == 12);
 	
 	/*
 	IFileComparator *fileComparator = new FileComparator(options, files);    
