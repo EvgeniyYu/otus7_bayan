@@ -15,8 +15,6 @@
 namespace fs = std::filesystem;	
 using vv = std::vector<std::vector<std::string>>;
 
-BOOST_TEST_LOG_LEVEL=message <test_bayan>
-
 BOOST_AUTO_TEST_SUITE(test_bayan)
 BOOST_AUTO_TEST_CASE(test_result_level_0_hash_crc32)
 {
