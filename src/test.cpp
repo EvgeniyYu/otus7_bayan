@@ -13,6 +13,7 @@
 
 
 namespace fs = std::filesystem;	
+using vv = std::vector<std::vector<std::string>>;
 
 BOOST_AUTO_TEST_SUITE(test_bayan)
 BOOST_AUTO_TEST_CASE(test_result_level_0_hash_crc32)
@@ -35,8 +36,37 @@ BOOST_AUTO_TEST_CASE(test_result_level_0_hash_crc32)
     BOOST_CHECK(is_scan == true);
     
     std::vector<File> files = scanner.getFilesList();
-	BOOST_CHECK(files.size() == 11);			
+	BOOST_CHECK(files.size() == 11);
+	
+	IFileComparator *fileComparator = new FileComparator(options, files);    
+    fileComparator->compare();
+    vv vec_calc = fileComparator->get_vector_result();
+    
+    vv vec_true = {{"my_tests/next/my1.txt", "my_tests/next/ex1.cpp"}, 
+    			{"my_tests/next/CTestTestfile.cmake", "my_tests/next/file_2.x", "my_tests/next/my_makefile2.x"}, 
+    			{"my_tests/next2/exe_11", "my_tests/next2/exe_1", "my_tests/next2/exe_111"},
+    			{"my_tests/next2/exe_22", "my_tests/next2/exe_2"}
+    			};			
+    			
+    int index = 0;
+    bool result = true;
+    for (size_t i = 0; i < vec_calc.size(); i++)
+    {        
+    	//vector must contain more than one record so we check:
+        if (vec_calc[i].size() <= 1) continue;
+        for (size_t j = 0; j < vec_calc[i].size(); j++)
+        {
+        	if (vec_calc[i][j] != vec_true[index][j]) 
+        	{
+        		result = false;
+        		BOOST_CHECK(result == true);
+        	}
+        }
+        index++;
+    }
+	BOOST_CHECK(result == true);
 }
+
 BOOST_AUTO_TEST_SUITE_END()
 
 /*
@@ -57,7 +87,6 @@ using vv = std::vector<std::vector<std::string>>;
 
 bool compare_vectors(vv& v1, vv& v2)
 {
-    std::stringstream sstr;
     int index = 0;
     for (const auto& i: v1)
     {        
