@@ -15,12 +15,15 @@
 namespace fs = std::filesystem;	
 using vv = std::vector<std::vector<std::string>>;
 
+BOOST_TEST_LOG_LEVEL=message <test_bayan>
+
 BOOST_AUTO_TEST_SUITE(test_bayan)
 BOOST_AUTO_TEST_CASE(test_result_level_0_hash_crc32)
 {
 	std::string str = "Current path: ";
 	str += fs::current_path();
-	BOOST_TEST_MESSAGE(str);
+	//BOOST_TEST_MESSAGE(str);
+	BOOST_WARN_MESSAGE(false, str);
 	
 	Options options;
 	options.include_dirs = "my_tests/next;my_tests/next2";
