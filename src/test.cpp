@@ -13,14 +13,13 @@
 
 
 namespace fs = std::filesystem;	
-#define BOOST_MESSAGE( M )                  BOOST_TEST_MESSAGE( M )
 
 BOOST_AUTO_TEST_SUITE(test_bayan)
 BOOST_AUTO_TEST_CASE(test_result_level_0_hash_crc32)
 {
 	std::string str = "Current path: ";
 	str += fs::current_path();
-	BOOST_MESSAGE(str);
+	BOOST_TEST_MESSAGE(str);
 	
 	Options options;
 	options.include_dirs = "my_tests/next;my_tests/next2";
@@ -34,7 +33,9 @@ BOOST_AUTO_TEST_CASE(test_result_level_0_hash_crc32)
     FileScanner scanner(options);
     bool is_scan = scanner.scan();
     BOOST_CHECK(is_scan == true);
-	//BOOST_CHECK(1 == 1);			
+    
+    std::vector<File> files = scanner.getFilesList();
+	BOOST_CHECK(files.size() == 11);			
 }
 BOOST_AUTO_TEST_SUITE_END()
 
