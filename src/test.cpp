@@ -19,7 +19,7 @@ BOOST_AUTO_TEST_SUITE(test_bayan)
 BOOST_AUTO_TEST_CASE(test_result_level_0_hash_crc32)
 {
 	std::string str = "Current path: ";
-	str += fs::current_path();
+	//str += fs::current_path();
 	//BOOST_TEST_MESSAGE(str);
 	BOOST_WARN_MESSAGE(false, str);
 	
@@ -37,7 +37,7 @@ BOOST_AUTO_TEST_CASE(test_result_level_0_hash_crc32)
     BOOST_CHECK(is_scan == true);
     
     std::vector<File> files = scanner.getFilesList();
-	BOOST_CHECK(files.size() == 11);
+	BOOST_CHECK(files.size() == 12);
 	
 	/*
 	IFileComparator *fileComparator = new FileComparator(options, files);    
