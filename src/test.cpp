@@ -39,7 +39,7 @@ BOOST_AUTO_TEST_CASE(test_result_level_0_hash_crc32)
     std::vector<File> files = scanner.getFilesList();
 	BOOST_CHECK(files.size() == 11);
 	
-	/*
+	
 	IFileComparator *fileComparator = new FileComparator(options, files);    
     fileComparator->compare();
     vv vec_calc = fileComparator->get_vector_result();
@@ -58,16 +58,19 @@ BOOST_AUTO_TEST_CASE(test_result_level_0_hash_crc32)
         if (vec_calc[i].size() <= 1) continue;
         for (size_t j = 0; j < vec_calc[i].size(); j++)
         {
+        	std::stringstream sstr;
+        	sstr << "(" << i << "," << j << "):" << vec_calc[i][j] << "|" << vec_true[index][j];    
+        	BOOST_WARN_MESSAGE(false, sstr.str());
         	if (vec_calc[i][j] != vec_true[index][j]) 
         	{
         		result = false;
-        		BOOST_CHECK(result == true);
+        		//BOOST_CHECK(result == true);
         	}
         }
         index++;
     }
 	BOOST_CHECK(result == true);
-	*/
+	
 }
 
 BOOST_AUTO_TEST_SUITE_END()
