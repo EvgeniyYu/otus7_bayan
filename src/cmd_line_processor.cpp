@@ -19,7 +19,7 @@ bool CommandLineProcessor::process_cmd_line(int argc, char** argv, std::ostream&
             ("mask",   po::value<std::string>(&options.mask),      "set the mask of file names for comparing")
             ("block_size",   po::value<int>(&options.block_size),      "set the block size")
             ("hash",   po::value<std::string>(&options.hash_method),      "set the hash algorithm")
-            ;
+        ;
 
         po::variables_map vm;
         po::store(po::parse_command_line(argc, argv, desc), vm);
